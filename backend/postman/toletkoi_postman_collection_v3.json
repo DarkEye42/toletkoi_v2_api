@@ -1,0 +1,330 @@
+{
+  "info": {
+    "_postman_id": "toletkoi-v3-collection",
+    "name": "ToletKoi API v3",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/auth/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "auth", "register"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"username\": \"user1\",\n  \"password\": \"password123\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "auth", "login"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"password123\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/users/profile/{{userIdOrUsername}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "users", "profile", "{{userIdOrUsername}}"]
+            }
+          }
+        },
+        {
+          "name": "Switch Role",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/users/switch-role",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "users", "switch-role"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": 1,\n  \"roleId\": 2\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Roles",
+      "item": [
+        {
+          "name": "Get Roles",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/roles/{{userId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "roles", "{{userId}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Role",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/roles/update",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "roles", "update"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": 1,\n  \"role\": \"tenant\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ads",
+      "item": [
+        {
+          "name": "Create Ad",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ads/create",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "ads", "create"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"uniqueId\": \"r-0007\",\n  \"post_owner\": 2,\n  \"description\": \"New rental\",\n  \"category\": \"rental\",\n  \"cost\": 12000\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Ad by Slug",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ads/slug/{{slug}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "ads", "slug", "{{slug}}"]
+            }
+          }
+        },
+        {
+          "name": "Track Ad View",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ads/track-view/{{adId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "ads", "track-view", "{{adId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/products/create",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "products", "create"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"owner_id\": 2,\n  \"title\": \"New Product\",\n  \"slug\": \"new-product\",\n  \"description\": \"Product desc\",\n  \"category\": \"home\",\n  \"price\": 500,\n  \"stock\": 10\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Product by Slug",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/products/slug/{{slug}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "products", "slug", "{{slug}}"]
+            }
+          }
+        },
+        {
+          "name": "Track Product View",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/products/track-view/{{productId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "products", "track-view", "{{productId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Blogs",
+      "item": [
+        {
+          "name": "Create Blog",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/blogs/create",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "blogs", "create"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Blog Title\",\n  \"slug\": \"blog-title\",\n  \"content\": \"Blog content\",\n  \"author_id\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Get Blog by Slug",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/blogs/slug/{{slug}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "blogs", "slug", "{{slug}}"]
+            }
+          }
+        },
+        {
+          "name": "Track Blog View",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/blogs/track-view/{{blogId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "blogs", "track-view", "{{blogId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Recommendations",
+      "item": [
+        {
+          "name": "Get Recommendations",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/recommendations/{{userId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "recommendations", "{{userId}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Payments",
+      "item": [
+        {
+          "name": "Init Payment",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/payments/init",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "payments", "init"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user_id\": 1,\n  \"amount\": 1000,\n  \"method\": \"sslcommerz\",\n  \"status\": \"pending\"\n}"
+            }
+          }
+        },
+        {
+          "name": "IPN/Webhook",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/payments/ipn",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "payments", "ipn"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payment_id\": 1,\n  \"status\": \"success\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Promote Ad/Product",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/payments/promote",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "payments", "promote"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ad_id\": 1,\n  \"start_date\": \"2025-09-01\",\n  \"end_date\": \"2025-09-10\",\n  \"status\": \"active\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Search",
+      "item": [
+        {
+          "name": "Search Rentals, Hotels, Products",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/search?q=flat&priceMin=5000&priceMax=20000",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "search"],
+              "query": [
+                { "key": "q", "value": "flat" },
+                { "key": "priceMin", "value": "5000" },
+                { "key": "priceMax", "value": "20000" }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [{ "key": "baseUrl", "value": "http://localhost:3000" }]
+}

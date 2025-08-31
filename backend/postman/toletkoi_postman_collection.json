@@ -1,0 +1,90 @@
+{
+  "info": {
+    "name": "ToletKoi API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\\n  \"email\":\"test@example.com\",\\n  \"username\":\"test\",\\n  \"password\":\"secret\"\\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/users/register",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "users",
+            "register"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Ad By Slug",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/api/ads/slug/family-flat-dhanmondi-1",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "ads",
+            "slug",
+            "family-flat-dhanmondi-1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Recommendations",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/api/recommendations/3",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "recommendations",
+            "3"
+          ]
+        }
+      }
+    }
+  ]
+}
